@@ -13,9 +13,17 @@ app.set('views', './views');
 
 
 app.get("/",(req,res)=>{
+    const isMobile = req.headers['user-agent'].includes("Mobile");
+    if(isMobile){
+         res.redirect("/mobile");
+    }
+
     res.render("home",{
         styles:["/css/home.css"]
     });
 })
 
+app.get("/mobile",(req,res)=>{
+    res.render("mobile");
+})
 app.listen(8000,console.log("site plum aberto"));
