@@ -9,7 +9,7 @@
                 <a href="#"><span>Inicio</span></a>
                 <a href="#"><span>Features</span></a>
                 <a href="#"><span>Produtos</span></a>
-                <a href="#"><span>Login</span></a>
+                <a href="#"><span>Criadores</span></a>
             </div>
         </div>
         <div class="btn_discord">
@@ -19,3 +19,104 @@
         </div>
     </div>
 </nav>
+<main class="scroll">
+
+     <section class=" hidden home">
+        <div class="title">
+            <div class="line">
+
+                <h1>Plum Steam</h1>
+                <h1 class="animation"> cuscus paulista</h1>
+            </div>
+            <p>A melhor empresa de comida não nordestina.</p>
+            <div class="buttons">
+                <a href="#">
+                    <span>Saiba mais</span>
+                </a>
+                <a href="#"><span>Acessar discord</span></a>
+            </div>
+        </div>
+    </section> 
+    <section class=" hidden features">
+        <div class="title">
+            <h1>Features</h1>
+            <p>Bem-vindo ao nosso site! Aqui você encontra produtos digitais exclusivos, criados especialmente para gamers e entusiastas de tecnologia. Nossa missão é oferecer conteúdos de alta qualidade, desde ferramentas úteis até recursos que melhoram a experiência de jogo e ajudam você a explorar o mundo dos games de maneira inovadora. Estamos sempre atentos às últimas tendências para trazer as melhores novidades e experiências ao seu alcance.<br>
+
+Navegue por nossas categorias e descubra itens que vão enriquecer sua jornada digital. Oferecemos desde assets, pacotes de gráficos, sons e plugins até guias e soluções personalizadas que ampliam o potencial dos jogos e suas possibilidades. Com um design pensado para tornar a navegação intuitiva e agradável, esperamos que você encontre exatamente o que procura para impulsionar sua criatividade e habilidades no universo gamer.</p>
+        </div>
+    </section>
+    <section class=" hidden produtos">
+        <div class="title">
+            <h1>Produtos</h1>
+            <p>Confira alguns de nossos produtos</p>
+        </div>
+        <div class="cont-itens">
+            <div class="item">
+                <a href="#">
+                    <img src="" alt="" srcset="">
+                    <h3>Title Item</h3>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="" alt="" srcset="">
+                    <h3>Title Item</h3>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="" alt="" srcset="">
+                    <h3>Title Item</h3>
+                </a>
+            </div>
+            
+        </div>
+
+    </section>
+    <section class=" hidden criadores">
+        <div class="title">
+            <h1>Criadores</h1>
+            <p>Esse site foi desenvolvido por </p>
+        </div>
+        <div class="cont-criadores">
+            <div class="criador">
+                <a href="#">
+                    <img src="https://i.pinimg.com/736x/58/2f/7d/582f7d906b487988919e97e64b01a247.jpg" alt="" srcset="">
+                    <h3>Zé pilitra</h3>
+                </a>
+            </div>
+            <div class="criador">
+                <a href="#">
+                    <img src="https://i.pinimg.com/564x/ba/00/ac/ba00ac966fe26ef93f6c0c473c79afc0.jpg" alt="" srcset="">
+                    <h3>Exu caveira</h3>
+                </a>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+
+<script>
+    const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            console.log(entry);
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            } else {
+                entry.target.classList.remove("show");
+            }
+        });
+    },
+    {
+        root: document.querySelector('main'), // Defina o contêiner de rolagem como root
+        rootMargin: '0px',
+        threshold: 0.1, // Ajuste o threshold se necessário
+    }
+);
+
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el) => observer.observe(el));
+
+</script>
