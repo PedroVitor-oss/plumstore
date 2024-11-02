@@ -1,0 +1,199 @@
+<section class="main">
+    <main class="center">
+        <h1 class="title"> Produtos</h1>
+        <div class="cont-itens">
+            {{#each produtos}}
+            <div class="item">
+                <input type="text" name="name" id="item{{{id}}}" placeholder="Nome do produto" value="{{nome}}">
+                <input type="text" name="valor" id="item{{{id}}}" placeholder="Valor do produto" value="{{{valor}}}">
+                <button onclick="delItem({{{id}}})">X</button>
+            </div>
+            {{/each}}
+        </div>
+        <div class="cont-button">
+            <button onclick="newItem()" id="addItem">New</button>
+            <button onclick="saveProdutos()" id="saveItem" class="save">Save</button>
+
+        </div>
+    </main>
+</section>
+<style>
+    /* Estilo do container principal */
+    body {
+        overflow: hidden;
+
+        .mensage
+        {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: auto;
+            height: 5vh;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #777;
+            background-color: #fff;;
+        }
+        .main {
+            background-color: #f0f0f0;
+            /* Branco mais escuro */
+            padding: 20px;
+            min-height: 100vh;
+
+            /* Altura mínima para cobrir a tela toda */
+            & .center {
+                background-color: #ffffff;
+                /* Branco para o fundo do main */
+                border-radius: 12px;
+                /* Bordas arredondadas */
+                padding: 20px;
+                max-width: 600px;
+                margin: 0 auto;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+                & h1.title {
+                    text-align: center;
+                    color: #333;
+                    /* Cor escura para contraste */
+                    font-size: 24px;
+                    margin-bottom: 20px;
+                }
+
+                & .cont-itens {
+                    background-color: #e0e0e0;
+                    /* Cinza claro para contraste */
+                    padding: 15px;
+                    border-radius: 8px;
+
+                    & .item {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 10px;
+
+                        & input[type="text"] {
+                            padding: 8px;
+                            margin-right: 10px;
+                            border-radius: 4px;
+                            border: 1px solid #ccc;
+                            flex: 1;
+                        }
+
+                        & button {
+                            background-color: #ff6666;
+                            /* Vermelho suave para o botão */
+                            color: #fff;
+                            border: none;
+                            border-radius: 4px;
+                            padding: 8px 12px;
+                            cursor: pointer;
+                        }
+
+                        & button:hover {
+                            background-color: #ff4d4d;
+                            /* Vermelho mais forte ao passar o mouse */
+                        }
+                    }
+                }
+
+                & .cont-button {
+                    padding: 15px;
+                    display: flex;
+                    flex-direction: row-reverse;
+                    justify-content: space-between;
+
+                    & .save {
+                        background-color: #ccc;
+                        color: #000;
+                    }
+
+                    & button {
+                        background-color: #5a009e;
+                        /* Vermelho suave para o botão */
+                        color: #fff;
+                        border: none;
+                        border-radius: 4px;
+                        padding: 8px 12px;
+                        cursor: pointer;
+                    }
+
+                }
+            }
+        }
+    }
+
+    /* Estilo do conteúdo centralizado */
+
+
+    /* Estilo do título */
+
+
+    /* Estilo do container de itens */
+
+
+    /* Estilo de cada item */
+</style>
+
+<script>
+    function newItem() {
+        const list = document.querySelectorAll('div.item');
+        const id = list.length;
+        document.querySelector("div.cont-itens").insertAdjacentHTML('beforeend', `
+    <div class="item">
+        <input type="text" name="name" id="item${id}" placeholder="Nome do produto">
+        <input type="text" name="valor" id="item${id}" placeholder="Valor do produto">
+        <button onclick="delItem(${id})">X</button>
+    </div>
+`);
+    }
+    function delItem(id) {
+        const list = document.querySelectorAll('div.cont-itens div.item');
+
+        if (id >= 0 && id < list.length) {
+            list[id].remove();
+        }
+    }
+
+
+    function save() {
+        const items = document.querySelectorAll('div.cont-itens div.item');
+        const result = [];
+        let cont = 0;
+        items.forEach(item => {
+
+            const nome = item.querySelector('input[name="name"]').value;
+            const valor = item.querySelector('input[name="valor"]').value;
+            console.log(nome + " - " + cont);
+            result.push({ nome, valor, id: cont });
+            cont++;
+        });
+
+        return (result);
+
+
+
+    }
+
+    function saveProdutos() {
+        const data = save();  // Gera o array com os dados dos inputs
+
+        fetch('/saveProdutos', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ produtos: data })  // Envia o array no formato { produtos: [...] }
+        })
+            .then(response => response.json())
+            .then(result => {
+                console.log("Dados salvos com sucesso:", result);
+                document.querySelector("body").append(`<div class="mensage"><h1>Dados salvos com sucesso</h1></div>`)
+            })
+            .catch(error => {
+                console.error("Erro ao salvar os dados:", error);
+            });
+    }
+
+
+
+
+
+</script>

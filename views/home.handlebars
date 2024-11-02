@@ -1,19 +1,19 @@
 <nav>
     <div class="logo">
-        <img src="/img/logo.png" alt="" srcset="">
+        <img src="https://cdn.discordapp.com/icons/1300852950234562601/596ad4ea7da4f141f1147364455b1e41.webp?size=96" alt="" srcset="">
     </div>
     <div class="cont-buttons">
         <div class="routes">
             <div class="show_buttons"></div>
             <div class="buttons">
-                <a href="#"><span>Inicio</span></a>
-                <a href="#"><span>Features</span></a>
-                <a href="#"><span>Produtos</span></a>
-                <a href="#"><span>Criadores</span></a>
+                <a href="#home"><span>Inicio</span></a>
+                <a href="#features"><span>Quem somos?</span></a>
+                <a href="#produtos"><span>Produtos</span></a>
+                <a href="#criadores"><span>Criadores</span></a>
             </div>
         </div>
         <div class="btn_discord">
-            <a href="#">
+            <a  href="https://discord.gg/secretgg">
                 <span>Discord</span>
             </a>
         </div>
@@ -21,37 +21,46 @@
 </nav>
 <main class="scroll">
 
-     <section class=" hidden home">
+     <section class=" hidden home" id="home">
         <div class="title">
             <div class="line">
 
-                <h1>Plum Steam</h1>
-                <h1 class="animation"> cuscus paulista</h1>
+                <h1>Scretgg</h1>
+                <h1 class="animation"> Tecnologia gamer</h1>
             </div>
-            <p>A melhor empresa de comida não nordestina.</p>
+            <p>Oferecendo o melhor preço para você.</p>
             <div class="buttons">
-                <a href="#">
+                <a href="#features">
                     <span>Saiba mais</span>
                 </a>
-                <a href="#"><span>Acessar discord</span></a>
+                <a href="https://discord.gg/secretgg"><span>Acessar discord</span></a>
             </div>
         </div>
     </section> 
-    <section class=" hidden features">
+    <section class=" hidden features" id="features">
         <div class="title">
-            <h1>Features</h1>
+            <h1>Quem somos?</h1>
             <p>Bem-vindo ao nosso site! Aqui você encontra produtos digitais exclusivos, criados especialmente para gamers e entusiastas de tecnologia. Nossa missão é oferecer conteúdos de alta qualidade, desde ferramentas úteis até recursos que melhoram a experiência de jogo e ajudam você a explorar o mundo dos games de maneira inovadora. Estamos sempre atentos às últimas tendências para trazer as melhores novidades e experiências ao seu alcance.<br>
 
 Navegue por nossas categorias e descubra itens que vão enriquecer sua jornada digital. Oferecemos desde assets, pacotes de gráficos, sons e plugins até guias e soluções personalizadas que ampliam o potencial dos jogos e suas possibilidades. Com um design pensado para tornar a navegação intuitiva e agradável, esperamos que você encontre exatamente o que procura para impulsionar sua criatividade e habilidades no universo gamer.</p>
         </div>
     </section>
-    <section class=" hidden produtos">
+    <section class=" hidden produtos" id="produtos">
         <div class="title">
             <h1>Produtos</h1>
             <p>Confira alguns de nossos produtos</p>
         </div>
         <div class="cont-itens">
+
+            {{#each produtos}}
             <div class="item">
+                <a href="#">
+                    <img src="" alt="" srcset="">
+                    <h3>{{{nome}}}</h3>
+                </a>
+            </div>
+            {{/each}}
+            <!--<div class="item">
                 <a href="#">
                     <img src="" alt="" srcset="">
                     <h3>Title Item</h3>
@@ -63,17 +72,11 @@ Navegue por nossas categorias e descubra itens que vão enriquecer sua jornada d
                     <h3>Title Item</h3>
                 </a>
             </div>
-            <div class="item">
-                <a href="#">
-                    <img src="" alt="" srcset="">
-                    <h3>Title Item</h3>
-                </a>
-            </div>
-            
+            -->
         </div>
 
     </section>
-    <section class=" hidden criadores">
+    <section class=" hidden criadores" id="criadores">
         <div class="title">
             <h1>Criadores</h1>
             <p>Esse site foi desenvolvido por </p>

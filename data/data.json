@@ -1,0 +1,24 @@
+{
+  "produtos": [
+    {
+      "nome": "porduto 1",
+      "valor": "",
+      "id": 0
+    },
+    {
+      "nome": "produtor 2",
+      "valor": "",
+      "id": 1
+    },
+    {
+      "nome": "porduto 4",
+      "valor": "",
+      "id": 2
+    },
+    {
+      "nome": "porduto 5",
+      "valor": "",
+      "id": 3
+    }
+  ]
+}
