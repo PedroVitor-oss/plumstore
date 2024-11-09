@@ -1,0 +1,500 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Poetsen One", sans-serif;
+}
+
+:root {
+  --text-color: #fff;
+  --main-color: #383831;
+
+  --h1-font: 5.5rem;
+  --p-font: 1rem;
+}
+
+body {
+  color: var(--text-color);
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 9%;
+  transition: all .55s ease;
+
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 600;
+  color: var(--text-color);
+
+}
+
+.navmenu {
+  display: flex;
+}
+
+.navmenu a {
+  display: inline-block;
+  margin: 0 30px;
+  color: var(--text-color);
+  font-size: var(--p-font);
+  transition: all .6s;
+
+}
+
+.navmenu a:hover {
+  transform: translateY(-5px);
+  color: ghostwhite;
+
+}
+
+.nav-rigth {
+  display: flex;
+  align-items: center;
+
+}
+
+.nav-btn {
+  display: inline-block;
+  background: var(--main-color);
+  border-radius: 16px;
+  color: var(--text-color);
+  padding: 12px 30px;
+  font-size: var(--p-font);
+  font-weight: 500;
+  margin-right: 20´px;
+  transition: .5s;
+}
+
+.nav-btn:hover {
+  background: var(--text-color);
+  color: #101010;
+
+}
+
+#menu-icon {
+  font-size: 42px;
+  z-index: 100%;
+  cursor: pointer;
+  display: none;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(250.59deg, #7bbb6f 0%, #285322 28.53%, #061602 75.52%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+section {
+  padding: 0 17%;
+
+}
+
+.hero-img img {
+  width: 100%;
+
+  height: auto;
+
+}
+
+.hero-text span {
+  color: var(--main-color);
+  font-size: 22px;
+  letter-spacing: 5px;
+
+
+}
+
+.hero-text h5 {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-color);
+  margin: 15px 0;
+}
+
+.hero-text h1 {
+  font-size: 60px;
+  line-height: 1;
+  margin: 0 0 35px;
+
+
+}
+
+.hero-text p {
+  width: 100%;
+  max-width: 500px;
+  font-size: var(--p-font);
+  line-height: 32px;
+  margin-bottom: 40px;
+
+}
+
+.hero-text a {
+  display: inline-block;
+  padding: 13px 28px;
+  background: var(--main-color);
+  border-radius: 16px;
+  color: var(--text-color);
+  font-size: 15px;
+  line-height: 1.3;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  transition: all .9s;
+}
+
+.hero-text a:hover {
+  transform: translateY(-8px);
+  border: 1px solid var(--text-color);
+  background: transparent;
+}
+
+.social-icons {
+  position: absolute;
+  top: 50%;
+  padding: 0 9%;
+  transform: translateY(-50%);
+}
+
+.social-icons i {
+  display: block;
+  margin: 25px 0;
+  color: var(--text-color);
+  font-size: 25px;
+  transition: all .6s;
+
+}
+
+.social-icons i:hover {
+  transform: rotate3d(0, 0, 1, 360deg);
+
+}
+
+.scroll-btn {
+  position: absolute;
+  bottom: 5%;
+  left: 80%;
+}
+
+.scroll-btn a {
+  font-size: 20px;
+  color: var(--text-color);
+
+}
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 450px;
+  height: 100%;
+  background: transparent;
+  backdrop-filter: blur(15px);
+  box-shadow: -1px 0 10px rgba(0, 0, 0, .2);
+  border-left: 2px solid rgba(255, 255, 255, .1);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  opacity: 0;
+}
+
+.wrapper.active-popup {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.icon-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 10px;
+}
+
+.icon-close i {
+  font-size: 32px;
+  color: #333;
+}
+
+.wrapper .logreg-box {
+  width: 100%;
+}
+
+.wrapper .form-box.login {
+  display: none;
+}
+
+.wrapper.active .form-box.login {
+  display: block;
+}
+
+.wrapper .form-box.register {
+  display: block;
+}
+
+.wrapper.active .form-box.register {
+  display: block;
+}
+
+.logreg-box .logreg-title {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #fff;
+
+}
+
+.logreg-title h2 {
+  font-size: 32px;
+
+}
+
+.logreg-title p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.logreg-box .input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+  border-bottom: 2px solid #fff;
+
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  padding-right: 25px;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.input-box input :focus~label
+.input-box input :valid~label {
+top: -5px;
+}
+
+.input-box .icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 19px;
+  color: #fff;
+}
+
+.logreg-box .remember-forgot {
+  font-size: 14.5px;
+  color: #fff;
+  font-weight: 500;
+  margin: -15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remember-forgot label input {
+  accent-color: #fff;
+  margin-right: 3px;
+}
+
+.remember-forgot a {
+  color: #fff;
+  text-decoration: none;
+
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+.logreg-box .btn {
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+  cursor: pointer;
+  font-size: 16px;
+  color: #222;
+  font-weight: 600;
+}
+
+.logreg-box .logreg-link {
+  font-size: 14.5px;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  margin: 25px 0 15px;
+
+}
+
+.logreg-link p a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.logreg-link p a :hover {
+  text-decoration: underline;
+}
+
+.media-options {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.media-options a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #fff;
+  margin: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+  border-radius: 40px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: .5s;
+}
+
+.media-options a:hover {
+  background: rgba(255, 255, 255, .1);
+}
+
+.media-options a i {
+  font-size: 20px;
+  margin: 0 8px 1.5px 0;
+
+}
+
+.media-options a span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* styles.css */
+
+/* Reset básico */
+body, h1, h2, ul, li, p, form, input, textarea, button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333333;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+main {
+  padding: 1rem;
+}
+
+.issues, .contact-form {
+  background-color: #ffffff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(3, 92, 15, 0.1);
+}
+
+.issues h2, .contact-form h2 {
+  margin-bottom: 0.5rem;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"], input[type="email"], textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #333;
+  color: #fff;
+}
+

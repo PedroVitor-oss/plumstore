@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>login</title>
+    <style>
+        /* Reset de margens e padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+        }
+
+        .wrapper {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logreg-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logreg-title h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .logreg-title p {
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .input-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px 40px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .input-box label {
+            position: absolute;
+            top: 50%;
+            left: 40px;
+            transform: translateY(-50%);
+            color: #aaa;
+            pointer-events: none;
+            transition: 0.3s;
+        }
+
+        .input-box input:focus~label,
+        .input-box input:not(:placeholder-shown)~label {
+            top: -5px;
+            font-size: 12px;
+            color: #333;
+        }
+
+        .input-box .icon {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: #aaa;
+        }
+
+        .remember-forgout {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .remember-forgout a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .remember-forgout a:hover {
+            color: #004499;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            background-color: #004499;
+        }
+
+        .logreg-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logreg-link a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .logreg-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+<body>
+
+
+    <header>
+        <section class="sing-in">
+            <div class="wrapper">
+                <div class="logreg-box">
+                    <div class="form-box login">
+                        <div class="logreg-title">
+                            <h2>Login</h2>
+                            <p>Faça login para acessar a plataforma</p>
+                        </div>
+
+                        <form  id = "login-form" action="/login" method="post">
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bxs-envelope'></i></span>
+                                <input type="email" name="mail" required>
+                                <label>Email</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bxs-lock-alt'></i></span>
+                                <input type="password" name="password" required>
+                                <label>Senha</label>
+                            </div>
+                            <div class="remember-forgout">
+                                <label><input type="checkbox"> Lembre de mim </label>
+
+                                <a href="#">Esqueceu sua senha?</a>
+                            </div>
+
+                            <button type="submit" class="btn" id="login-btn">Login</button>
+                            <button type="submit" class="btn" id="regist-btn">Registrar</button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            </div>
+
+        </section>
+    </header>
+</body>
+</head>
+
+</html>
+
+<script>
+    let mensage = "{{message}}";
+    if(mensage!=""){
+        alert(mensage);
+    }
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('login-btn').addEventListener('click', function () {
+            const form = document.getElementById('login-form');
+            form.action = '/login?login=true';
+            form.submit();
+        });
+
+        document.getElementById('regist-btn').addEventListener('click', function () {
+            const form = document.getElementById('login-form');
+            form.action = '/login?login=false';
+            form.submit();
+        });
+    });
+</script>
